@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Journal</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="welcome" class="main-fixed row">
+	  <div class="page-wide">
+	  	<div class="grid-container">
+	  		<div class="grid-item col-sm-12">
+	  			<h1>Welcome My Friend, Welcome!</h1>
+	  			<p><button id="hidewelcome" type="button" class="btn btn-lg btn-default">Knock Knock</button></p>
+	  		</div>
+	  	</div>
+	  </div>
+	</div>
+
+	<div id="wrapper" class="hide">
+
+	<header>
+	    <div class="container clearfix">
+
+	        <h1 id="logo">
+	        	<img class="logoimg" src="img/icon.gif">
+				#Jin
+	        </h1>
+	        <nav>
+	            <span id="back-home">Home</span>
+	            <span id="write-entry">Write</span>
+	            <span id="start-search">Search</span>
+	            <span id="start-overview">Overview</span>
+	        </nav>
+	    </div>
+	</header><!-- /header -->
+
+	<div id="new-entry" class="new-entry" hidden>
+		<div id="new-entry-body">
+			<form id="creationform">
+				<fieldset class="form-group">
+					<label for="title">Title</label>
+					<input id="title" class="form-control" type="text" name="" placeholder="Enter the entry's title...">
+				</fieldset>
+
+				<fieldset class="form-group">
+					<label for="author">Author</label>
+					<input id="author" class="form-control" type="text" name="" value="Jin">
+					
+				</fieldset>
+
+				<fieldset class="form-group">
+					<label for="entrytext">Content</label>
+					<textarea id="entrytext" class="form-control" rows="5" placeholder="Let your mind fly here..."></textarea>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<label for="tags">Tags</label>
+					<input id="tags" class="form-control" type="text" name="" placeholder="Add some tags, separated by commas...">
+				</fieldset>
+
+				<button id="submit-post" class="btn btn-primary-outline" type="submit">Save</button>
+				<button id="cancel-creation" class="btn btn-secondary-outline" type="button">Cancel</button>
+				<button id="reset-form" class="btn btn-secondary-outline" type="reset">Reset</button>
+					
+			</form>
+		</div>
+	</div>
+
+	<div id="new-search" class="new-search" hidden>
+		<div id="search-body">
+			<form id="searchform">
+				<h2>Find all the entries within this journal</h2>
+
+				<div class="radio">
+					<label class="radio-inline">
+	  					<input type="radio" name="searchMethod" id="byTag" value="byTag"> with this tag: 
+					</label>
+					<label class="radio-inline">
+						 <input type="radio" name="searchMethod" id="byStr" value="byStr"> containing this word: 
+					</label>
+				</div>
+
+				<input id="searchInput" class="form-control" type="text" name="" placeholder="A tag, or a word. It's your choice.">
+
+				<button id="submit-search" class="btn btn-primary-outline" type="submit">Search</button>
+				<button id="cancel-search" class="btn btn-secondary-outline" type="button">Cancel</button>
+
+
+			</form>
+		</div>
+	</div>
+
+	<div id="search-result" class="search-result" hidden>
+		<div id="result-body">
+			<table class="table table-hover table-condensed table-responsive">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Author</th>
+						<th>Date Created</th>
+						<th>Tags</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+
+				<tbody id="result-table-body">
+								
+				</tbody>
+			</table>
+
+			<button id="refine-search" class="btn btn-secondary-outline" type="button">Refine Search Condition</button>
+			<button id="cancel-result" class="btn btn-secondary-outline" type="button">Cancel</button>
+			
+		</div>	
+	</div>
+
+	<div id="single-entry" class="single-entry" hidden>
+		<div class="entry-container">
+			<div class="single-content">
+				<h3 id="single-title" class="single-title"></h3>
+				<span id="single-author"></span>
+				<span id="single-timestamp"></span>
+				<div class="single-body">
+					<p id="single-body"></p>
+				</div>
+				<span>#tags: </span>
+				<span id="single-tags"></span>
+				<div class="single-buttons">
+					<button class="btn btn-sm btn-secondary">Edit</button>
+					<button class="btn btn-sm btn-secondary single-delete"">Delete</button>
+					<button class="btn btn-sm btn-secondary single-cancel">Cancel</button>
+				</div>
+				
+			</div>			
+		</div>	
+	</div>
+
+	<div id="overview" class="overview">
+		<div class="sidebar">
+			<div id="listov">
+				<h3>Journal Overview</h3>
+				<ul class="list-group listtitles">
+					<li class="list-group-item">h1</li>
+					<li class="list-group-item">thisis</li>
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+
+
+	<div id="main">
+	    <div id="content">
+	    	<h>Ummmm... You don't seem to have anything here. Try creating an entry first!<p>
+	    </div>
+	</div><!-- #main -->
+
+
+</div><!-- /#wrapper -->
+		
+
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/journal.js"></script>
+</body>
+</html>
